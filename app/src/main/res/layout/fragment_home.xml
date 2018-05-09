@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="2" >
+		
+		<com.daimajia.slider.library.SliderLayout
+			android:id="@+id/slider_show"
+			android:layout_width="match_parent"
+			android:layout_height="200dp"
+		/>
+	
+	</RelativeLayout>
+		
+	<TableLayout
+		android:id="@+id/tableLayout1"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="3.5" >
+
+		<TableRow
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_weight="1" >
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+				
+						<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+				
+						<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+			
+		</TableRow>
+
+				<TableRow
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_weight="1" >
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+				
+						<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+				
+						<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+			
+		</TableRow>
+
+				<TableRow
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_weight="1" >
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+				
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+				
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+				
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1" >
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#727486"
+						android:gravity="bottom|right"
+						android:text="BTC "
+					/>
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom"
+						android:text="/"
+					/>
+					
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:layout_weight="1"
+						android:textSize="16dp"
+						android:textColor="#c1c1c1"
+						android:gravity="bottom|left"
+						android:text=" USDT"
+					/>
+					
+				</LinearLayout>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:textSize="18dp"
+					android:textStyle="bold"
+					android:textColor="#727486"
+					android:text="8896.53"
+				/>
+				
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:gravity="center|top"
+					android:textSize="12dp"
+					android:textColor="#50c382"
+					android:text="+1.39%"
+				/>
+			
+			</LinearLayout>
+			
+		</TableRow>
+
+	</TableLayout>
+	
+	<LinearLayout 
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:background="#6a69e5"
+		android:layout_weight="1" >
+		
+		<LinearLayout 
+			android:orientation="vertical"
+			android:layout_width="0dp"
+			android:layout_height="fill_parent"
+			android:layout_marginLeft="20dp"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="10dp" 
+			android:layout_weight="1" >
+			
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:textSize="18dp"
+				android:gravity="bottom"
+				android:textColor="#ffffff"
+				android:text="@string/text_my_assets"
+			/>
+			
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:textSize="10dp"
+				android:textColor="#ffffff"
+				android:text="@string/text_my_assets_note"
+			/>
+			
+		</LinearLayout>
+	
+		<RelativeLayout 
+			android:layout_width="0dp"
+			android:layout_height="fill_parent" 
+			android:layout_weight="1" >
+			
+			  <Button
+				android:id="@+id/login"
+				android:textAllCaps="false"
+				android:background="#ffffff"
+				android:layout_width="130dp"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:layout_gravity="center_vertical"
+				android:text="@string/button_login" />
+			
+		</RelativeLayout>
+		
+	</LinearLayout>
+
+</LinearLayout>

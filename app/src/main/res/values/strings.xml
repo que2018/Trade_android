@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Trade</string>
+    <string name="title_home">Home</string>
+	<string name="title_quotation">Quotation</string>
+    <string name="title_trade">Trade</string>
+    <string name="title_account">Account</string>
+	
+	<string name="button_login">Log in</string>
+	
+	<string name="text_my_assets">My Assets</string>
+	<string name="text_my_assets_note">View and manage your assets after login</string>
+
+</resources>
