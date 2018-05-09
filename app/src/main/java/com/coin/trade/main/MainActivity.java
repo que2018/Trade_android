@@ -19,7 +19,7 @@ import com.coin.trade.R;
 public class MainActivity extends AppCompatActivity {
 
     private Fragment[] fragments;
-    private int currentFragment = 0;
+    private int currentFragment = 1;
     
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
