@@ -10,4 +10,9 @@
 	<string name="text_my_assets">My Assets</string>
 	<string name="text_my_assets_note">View and manage your assets after login</string>
 
+    <string name="button_usdt">USDT</string>
+    <string name="button_btc">BTC</string>
+    <string name="button_eth">ETH</string>
+    <string name="button_submit">submit</string>
+
 </resources>

@@ -5,6 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal"
+        android:background="#ffffff" >
 
+        <Button
+            android:id="@+id/usdt"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/r1111_purple"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/button_usdt" />
+
+        <Button
+            android:id="@+id/btc"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/r1111_grey_light"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/button_btc" />
+
+        <Button
+            android:id="@+id/eth"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/r1111_grey_light"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/button_eth" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9" >
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+        </ProgressBar>
+
+        <ListView
+            android:id="@+id/price_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:dividerHeight="0dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
 
 </LinearLayout>
