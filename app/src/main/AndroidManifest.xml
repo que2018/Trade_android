@@ -23,6 +23,16 @@
             android:name=".main.TradeChartActivity"
             android:screenOrientation="portrait" >
         </activity>
+		
+		<activity
+            android:name=".main.LoginActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".main.RegisterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
 
     </application>
 

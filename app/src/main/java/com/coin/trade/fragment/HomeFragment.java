@@ -2,12 +2,15 @@ package com.coin.trade.fragment;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.coin.trade.main.LoginActivity;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -19,6 +22,7 @@ import com.coin.trade.R;
 public class HomeFragment extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
 	private SliderLayout sliderShow;
+	private Button loginButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,9 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         View rootView = inflater.inflate(R.layout.fragment_home, null);
 
 		sliderShow = rootView.findViewById(R.id.slider_show);
-		
+		loginButton = rootView.findViewById(R.id.login);
+
+        //sliders
 		ArrayList<Integer> slideList = new ArrayList<>();
 		slideList.add(R.drawable.slide1);
 		slideList.add(R.drawable.slide2);
@@ -50,7 +56,16 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         sliderShow.setCustomAnimation(new DescriptionAnimation());
         sliderShow.setDuration(4000);
         sliderShow.addOnPageChangeListener(this);
-        
+
+        //go to login
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return rootView;
     }
     

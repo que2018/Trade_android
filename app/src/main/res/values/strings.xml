@@ -1,18 +1,28 @@
 <resources>
     <string name="app_name">Trade</string>
     <string name="title_home">Home</string>
-	<string name="title_quotation">Quotation</string>
+    <string name="title_quotation">Quotation</string>
     <string name="title_trade">Trade</string>
     <string name="title_account">Account</string>
-	
-	<string name="button_login">Log in</string>
-	
-	<string name="text_my_assets">My Assets</string>
-	<string name="text_my_assets_note">View and manage your assets after login</string>
+
+    <string name="text_my_assets">My Assets</string>
+    <string name="text_new_to_us">New to us?</string>
+    <string name="text_my_assets_note">View and manage your assets after login</string>
+    <string name="text_your_email_address">Your Email Address</string>
+    <string name="text_password">Password</string>
+    <string name="text_sign_up">Sign Up</string>
+    <string name="text_firstname">First Name</string>
+    <string name="text_lastname">Last Name</string>
+    <string name="text_email_address">Email Address</string>
+    <string name="text_phone_number">Phone Number</string>
+	<string name="text_sms">SMS</string>
+    <string name="text_password_confirm">Password Confirm</string>
+    <string name="text_reference_number">Reference Number</string>
 
     <string name="button_usdt">USDT</string>
     <string name="button_btc">BTC</string>
     <string name="button_eth">ETH</string>
     <string name="button_submit">submit</string>
+    <string name="button_login">Log in</string>
 
 </resources>
