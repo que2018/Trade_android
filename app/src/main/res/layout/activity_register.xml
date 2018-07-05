@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_weight="0.5"
+		android:layout_height="0dp">
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/firstname"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_firstname" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/lastname"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_lastname" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/email"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_email_address" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/phone"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_phone_number" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/sms"
+				android:layout_height="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="2"
+				android:inputType="text"
+				android:layout_centerVertical="true"
+				android:hint="@string/text_sms" />
+
+			<Button
+				android:id="@+id/sms_send"
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="35dp"
+				android:layout_marginLeft="15dp"
+				android:layout_centerVertical="true"
+				android:text="@string/button_sms_send"
+				android:textAllCaps="false"
+				android:textColor="#ffffff"
+				android:textSize="14dp"
+				android:background="@color/colorPrimary"
+				style="?android:attr/borderlessButtonStyle" />
+
+		</LinearLayout>
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/password"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_password" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/password_confirm"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_password_confirm" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<EditText
+			android:id="@+id/reference_number"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:inputType="text"
+			android:layout_centerVertical="true"
+			android:hint="@string/text_reference_number" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_weight="2"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<Button
+			android:id="@+id/register"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:text="@string/button_register"
+			android:textAllCaps="false"
+			android:textColor="#ffffff"
+			android:textSize="18dp"
+			android:background="@color/colorPrimary"
+			style="?android:attr/borderlessButtonStyle" />
+
+	</RelativeLayout>
+
+</LinearLayout>

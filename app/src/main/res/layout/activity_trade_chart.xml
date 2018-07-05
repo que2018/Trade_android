@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#ffffff" >
+
+	<LinearLayout 
+	    android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="2" >
+		
+		<LinearLayout 
+			android:orientation="vertical"
+			android:layout_width="0dp"
+			android:layout_weight="2"
+			android:layout_height="fill_parent"
+			android:layout_marginLeft="25dp" >
+		
+			<LinearLayout 
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2" >
+		
+				<RelativeLayout 
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="fill_parent" >
+				
+					<ImageView
+						android:id="@+id/icon"
+						android:layout_width="30dp"
+						android:layout_height="30dp"
+						android:layout_alignParentBottom="true"
+						android:src="@drawable/bitcoin" />
+				
+				</RelativeLayout>
+		
+				<RelativeLayout 
+					android:layout_width="0dp"
+					android:layout_weight="5"
+					android:layout_height="fill_parent" >
+		
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textSize="16dp"
+						android:textColor="#6969e5"
+						android:layout_marginLeft="5dp"
+						android:layout_marginBottom="5dp"
+						android:layout_alignParentBottom="true"
+						android:text="BITCOIN"
+					/>
+
+				</RelativeLayout>
+					
+			</LinearLayout>
+		
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:textSize="27dp"
+				android:textStyle="bold"
+				android:textColor="#6969e5"
+				android:gravity="left|top"
+				android:text="9,901,36"
+			/>	
+		
+		</LinearLayout>
+		
+		<RelativeLayout 
+			android:layout_width="0dp"
+			android:layout_weight="1"
+			android:layout_height="fill_parent"
+			android:padding="8dp"
+			android:layout_marginRight="8dp" >
+		
+			<ImageView
+				android:id="@+id/trend"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:src="@drawable/trend" />
+		
+		</RelativeLayout>
+		
+		<LinearLayout 
+		    android:orientation="vertical"
+			android:layout_width="0dp"
+			android:layout_weight="1.5"
+			android:layout_height="fill_parent" >
+		
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:textSize="16dp"
+				android:textColor="#727486"
+				android:gravity="bottom"
+				android:text="$98520.22"
+			/>
+
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="0dp"
+				android:layout_weight="3"
+				android:textSize="28dp"
+				android:textColor="#16b187"
+				android:gravity="top"
+				android:text="2.93%"
+			/>	
+		
+		</LinearLayout>
+		
+	</LinearLayout>
+	
+	<LinearLayout 
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1" >
+		
+		<RelativeLayout 
+			android:layout_width="0dp"
+			android:layout_height="fill_parent" 
+			android:layout_weight="1" >
+			
+			<TextView
+				android:id="@+id/high"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="20dp"
+				android:textColor="#000000"
+				android:gravity="center"
+				android:text="9552.56"
+			/>	
+			
+			<TextView
+				android:layout_below="@+id/high" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="12dp"
+				android:textColor="#000000"
+				android:gravity="center"
+				android:text="high"
+			/>	
+			
+		</RelativeLayout>
+		
+		<RelativeLayout 
+			android:layout_width="0dp"
+			android:layout_height="fill_parent" 
+			android:layout_weight="1" >
+			
+			<TextView
+				android:id="@+id/low"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="20dp"
+				android:textColor="#000000"
+				android:gravity="center"
+				android:text="7552.56"
+			/>	
+			
+			<TextView
+				android:layout_below="@+id/low" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="12dp"
+				android:textColor="#000000"
+				android:gravity="center"
+				android:text="low"
+			/>	
+			
+		</RelativeLayout>
+		
+		<RelativeLayout 
+			android:layout_width="0dp"
+			android:layout_height="fill_parent" 
+			android:layout_weight="1" >
+			
+			<TextView
+				android:id="@+id/volume"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="20dp"
+				android:textColor="#000000"
+				android:gravity="center"
+				android:text="27552.56"
+			/>	
+			
+			<TextView
+				android:layout_below="@+id/volume" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="12dp"
+				android:textColor="#000000"
+				android:gravity="center"
+				android:text="volume"
+			/>	
+			
+		</RelativeLayout>
+		
+	</LinearLayout>
+	
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="6" 
+		android:padding="20dp" >
+	
+		<com.github.mikephil.charting.charts.CandleStickChart
+			android:id="@+id/chart"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_above="@+id/seekBar1" />
+
+		<TextView
+			android:id="@+id/tvXMax"
+			android:layout_width="50dp"
+			android:layout_height="wrap_content"
+			android:layout_alignBottom="@+id/seekBar1"
+			android:layout_alignParentRight="true"
+			android:text="500"
+			android:layout_marginBottom="15dp"
+			android:layout_marginRight="10dp"
+			android:gravity="right"
+			android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		<TextView
+			android:id="@+id/tvYMax"
+			android:layout_width="50dp"
+			android:layout_height="wrap_content"
+			android:layout_alignBottom="@+id/seekBar2"
+			android:layout_alignParentRight="true"
+			android:text="500"
+			android:layout_marginBottom="15dp"
+			android:layout_marginRight="10dp"
+			android:gravity="right"
+			android:textAppearance="?android:attr/textAppearanceMedium" />
+			
+	</RelativeLayout>
+
+</LinearLayout>
