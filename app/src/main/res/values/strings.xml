@@ -24,5 +24,8 @@
     <string name="button_eth">ETH</string>
     <string name="button_submit">submit</string>
     <string name="button_login">Log in</string>
+    <string name="button_register">Register</string>
+    <string name="button_sms_send">Send SMS</string>
+
 
 </resources>
