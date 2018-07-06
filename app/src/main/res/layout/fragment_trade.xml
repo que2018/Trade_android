@@ -115,62 +115,149 @@
 		</LinearLayout>
 		
 	</LinearLayout>
-	
+
 	<RelativeLayout 
 		android:layout_width="fill_parent"
 		android:layout_height="0dp" 
-		android:layout_weight="4" >
-		
+		android:layout_weight="5" >
+
+		<LinearLayout
+			android:id="@+id/trade_list_header"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="30dp" >
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:textColor="#717483"
+				android:gravity="center"
+				android:text="@string/text_buy" />
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:textColor="#717483"
+				android:gravity="center"
+				android:text="@string/text_amount" />
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:textColor="#717483"
+				android:gravity="center"
+				android:text="@string/text_price" />
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:textColor="#717483"
+				android:gravity="center"
+				android:text="@string/text_price" />
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:textColor="#717483"
+				android:gravity="center"
+				android:text="@string/text_amount" />
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1"
+				android:textColor="#717483"
+				android:gravity="center"
+				android:text="@string/text_sell" />
+
+		</LinearLayout>
+
 		<ListView
-            android:id="@+id/price_list"
+            android:id="@+id/trade_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:divider="@null"
+			android:layout_below="@id/trade_list_header"
+			android:divider="@null"
             android:scrollbars="none"
             android:dividerHeight="0dp"
             android:visibility="gone"/>
-		
-		
+
+		<ProgressBar
+			android:id="@+id/progressbar"
+			android:layout_width="70dp"
+			android:layout_height="70dp"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true" >
+		</ProgressBar>
+
 	</RelativeLayout>
 	
-	<RelativeLayout 
+	<RelativeLayout
 		android:layout_width="fill_parent"
 		android:layout_height="0dp" 
 		android:layout_weight="1" >
-		
-		
-	</RelativeLayout>
-	
-	<RelativeLayout 
-		android:layout_width="fill_parent"
-		android:layout_height="0dp" 
-		android:layout_weight="1" >
-		
-		
-	</RelativeLayout>
-	
-	<RelativeLayout 
-		android:layout_width="fill_parent"
-		android:layout_height="0dp" 
-		android:layout_weight="1" >
-		
-		
-	</RelativeLayout>
-	
-	<RelativeLayout 
-		android:layout_width="fill_parent"
-		android:layout_height="0dp" 
-		android:layout_weight="1" >
-		
-		
-	</RelativeLayout>
-	
-	<RelativeLayout 
-		android:layout_width="fill_parent"
-		android:layout_height="0dp" 
-		android:layout_weight="2" >
-		
-		
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:paddingTop="3dp"
+			android:paddingBottom="3dp"
+			android:paddingLeft="15dp"
+			android:paddingRight="15dp" >
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:textColor="#ffffff"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="@string/button_buy"
+				android:background="@drawable/r1111_primary"
+				style="?android:attr/borderlessButtonStyle" />
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:textColor="#ffffff"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="@string/button_sell"
+				android:background="@drawable/r1111_primary"
+				style="?android:attr/borderlessButtonStyle" />
+
+			<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+
+			</RelativeLayout>
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1.2"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:textColor="#000000"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="@string/button_limit_order"
+				android:background="@drawable/r1111_grey_light"
+				style="?android:attr/borderlessButtonStyle" />
+
+		</LinearLayout>
+
 	</RelativeLayout>
 	
 	<RelativeLayout 
@@ -178,18 +265,157 @@
 		android:layout_height="0dp" 
 		android:layout_weight="1.5" >
 
-		<Button
-			android:id="@+id/submit"
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="20dp"
+			android:paddingTop="20dp"
+			android:textSize="12dp"
+			android:textColor="#000000"
+			android:gravity="top|left"
+			android:text="@string/text_price" />
+
+		<EditText
+			android:id="@+id/price"
 			android:layout_width="fill_parent"
 			android:layout_height="fill_parent"
-			android:textSize="18dp"
-			android:layout_margin="8dp"
-			android:background="#6a69e5"
-			android:textColor="#ffffff"
-            style="?android:attr/borderlessButtonStyle"
-			android:text="@string/button_submit"
- 		/>
+			android:gravity="center"
+			android:textSize="24dp"
+			android:textStyle="bold"
+			android:textColor="#000000"
+			android:text="9,781.20" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1.5" >
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingLeft="20dp"
+			android:paddingTop="20dp"
+			android:textSize="12dp"
+			android:textColor="#000000"
+			android:gravity="top|left"
+			android:text="@string/text_amount" />
+
+		<EditText
+			android:id="@+id/amount"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:gravity="center"
+			android:textSize="24dp"
+			android:textStyle="bold"
+			android:textColor="#000000"
+			android:text="0.0000" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="1" >
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:paddingTop="5dp"
+			android:paddingBottom="5dp"
+			android:paddingLeft="15dp"
+			android:paddingRight="15dp"
+			android:background="@color/colorPrimary" >
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:textColor="#000000"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="25%"
+				android:background="@drawable/r1111_grey_light"
+				style="?android:attr/borderlessButtonStyle" />
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:textColor="#000000"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="50%"
+				android:background="@drawable/r1111_grey_light"
+				style="?android:attr/borderlessButtonStyle" />
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:textColor="#000000"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="75%"
+				android:background="@drawable/r1111_grey_light"
+				style="?android:attr/borderlessButtonStyle" />
+
+			<Button
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_marginRight="10dp"
+				android:textColor="#000000"
+				android:textSize="13dp"
+				android:textAllCaps="false"
+				android:text="100%"
+				android:background="@drawable/r1111_grey_light"
+				style="?android:attr/borderlessButtonStyle" />
+
+		</LinearLayout>
 		
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="2"
+		android:padding="10dp" >
+
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:gravity="center"
+			android:textSize="24dp"
+			android:textStyle="bold"
+			android:textColor="#000000"
+			android:background="@drawable/r0000_grey_light"
+			android:text="0.00000" />
+		
+	</RelativeLayout>
+	
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="0dp" 
+		android:layout_weight="2"
+		android:padding="10dp" >
+
+		<com.coin.trade.customview.LoadingButton
+			android:id="@+id/submit"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:clickable="true" />
+
 	</RelativeLayout>
 
 </LinearLayout>

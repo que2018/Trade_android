@@ -169,7 +169,7 @@ public class QuotationFragment extends Fragment {
                     prices.add(price);
                 }
 
-                PriceAdapter priceAdapter = new PriceAdapter(prices);
+                PriceAdapter priceAdapter = new PriceAdapter(getActivity(), prices);
                 priceList.setAdapter(priceAdapter);
 
             } catch(JSONException e) {

@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content"
+	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_gravity="center_horizontal">
+	android:layout_gravity="center_horizontal"
+	android:background="@color/colorPrimary"
+	android:paddingTop="1dp"
+	android:paddingBottom="1dp" >
 
 	<ProgressBar
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:id="@+id/progressBar"
-		android:layout_gravity="right"
-		android:layout_alignTop="@+id/btnConnect"
-		android:layout_alignRight="@+id/btnConnect"
-		android:layout_alignEnd="@+id/btnConnect" />
+		android:id="@+id/ld_progressbar"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:indeterminate="true"
+		android:layout_centerInParent="true"
+		android:visibility="invisible" />
 
 	<Button
-		android:layout_width="wrap_content"
+		android:id="@+id/ld_login"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="Connect"
-		android:id="@+id/btnConnect"
-		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="30dp"
-		android:width="200dp"
-		android:focusable="false"
-		android:focusableInTouchMode="false" />
+		android:layout_centerVertical="true"
+		android:textColor="#ffffff"
+		android:textAllCaps="false"
+		android:background="@color/colorPrimary"
+		style="?android:attr/borderlessButtonStyle"
+		android:visibility="visible" />
+
 </RelativeLayout>

@@ -18,6 +18,13 @@
 	<string name="text_sms">SMS</string>
     <string name="text_password_confirm">Password Confirm</string>
     <string name="text_reference_number">Reference Number</string>
+    <string name="text_my_balance">My Balance</string>
+    <string name="text_my_order">My Order</string>
+    <string name="text_about">About</string>
+    <string name="text_price">Price</string>
+    <string name="text_amount">Amount</string>
+    <string name="text_buy">Buy</string>
+    <string name="text_sell">Sell</string>
 
     <string name="button_usdt">USDT</string>
     <string name="button_btc">BTC</string>
@@ -26,6 +33,8 @@
     <string name="button_login">Log in</string>
     <string name="button_register">Register</string>
     <string name="button_sms_send">Send SMS</string>
-
+    <string name="button_buy">Buy</string>
+    <string name="button_sell">Sell</string>
+    <string name="button_limit_order">Limit Order</string>
 
 </resources>

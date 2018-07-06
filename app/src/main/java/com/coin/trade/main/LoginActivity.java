@@ -14,12 +14,12 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.coin.trade.constant.ADDR;
 import com.coin.trade.constant.STATS;
+import com.coin.trade.customview.LoadingButton;
 import com.coin.trade.network.PostNetData;
 import com.coin.trade.R;
 
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameText;
     private EditText passwordText;
     private TextView signUpText;
-    private Button loginButton;
+    private LoadingButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -40,28 +40,37 @@ public class LoginActivity extends AppCompatActivity {
         signUpText = findViewById(R.id.signup);
         loginButton = findViewById(R.id.login);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        String loginText = getResources().getString(R.string.button_login);
+
+        loginButton.setText(loginText);
+        loginButton.setFontSize(18);
+
+        loginButton.setProgressBarColor(0xFFFFFFFF);
+
+        loginButton.addButtonLister(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            String username = usernameText.getText().toString();
-            String password = passwordText.getText().toString();
+                String username = usernameText.getText().toString();
+                String password = passwordText.getText().toString();
 
-            usernameText.setFocusable(false);
-            passwordText.setFocusable(false);
+                usernameText.setFocusable(false);
+                passwordText.setFocusable(false);
 
-            LoginTask loginTask = new LoginTask(username, password);
-            loginTask.execute();
+                loginButton.startLoading();
+
+                LoginTask loginTask = new LoginTask(username, password);
+                loginTask.execute();
             }
         });
 
         signUpText.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(intent);
-            }
-        });
-    }
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                }
+            });
+        }
 
     class LoginTask extends AsyncTask<Void, Void, Void> {
 
@@ -105,6 +114,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     usernameText.setText("");
                     passwordText.setText("");
+
+                    loginButton.stopLoading();
 
                     AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).create();
                     alertDialog.setTitle("Alert");

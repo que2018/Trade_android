@@ -3,8 +3,149 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp" >
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:padding="9dp"
+                android:src="@drawable/portrait_placeholder" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:padding="13dp" >
+
+                <TextView
+                    android:id="@+id/info1"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="0dp"
+                    android:textSize="21dp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical|left"
+                    android:text="6265***6932" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:textSize="14dp"
+                    android:textColor="#000000"
+                    android:gravity="top|left"
+                    android:text="9652300" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:padding="9dp"
+                android:src="@drawable/bitcoin" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="fill_parent"
+                android:textSize="18dp"
+                android:textColor="#727486"
+                android:gravity="center_vertical|left"
+                android:text="@string/text_my_balance" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:padding="9dp"
+                android:src="@drawable/bitcoin" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="fill_parent"
+                android:textSize="18dp"
+                android:textColor="#727486"
+                android:gravity="center_vertical|left"
+                android:text="@string/text_my_order" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:padding="9dp"
+                android:src="@drawable/bitcoin" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="fill_parent"
+                android:textSize="18dp"
+                android:textColor="#727486"
+                android:gravity="center_vertical|left"
+                android:text="@string/text_about" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

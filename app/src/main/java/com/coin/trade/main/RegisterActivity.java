@@ -14,11 +14,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.coin.trade.constant.ADDR;
 import com.coin.trade.constant.STATS;
+import com.coin.trade.customview.LoadingButton;
 import com.coin.trade.network.PostNetData;
 import com.coin.trade.R;
 
@@ -32,8 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
 	private EditText passwordText;	
 	private EditText passwordConfirmText;
 	private EditText referenceNumberText;	
-    private Button registerButton;
-    private Button smsSendButton;
+    private LoadingButton registerButton;
+    private LoadingButton smsSendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -51,50 +51,66 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.register);
         smsSendButton = findViewById(R.id.sms_send);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        String registerText = getResources().getString(R.string.button_register);
+        String smsSendText = getResources().getString(R.string.button_sms_send);
+
+        registerButton.setText(registerText);
+        registerButton.setFontSize(18);
+        registerButton.setProgressBarColor(0xFFFFFFFF);
+
+        smsSendButton.setText(smsSendText);
+        smsSendButton.setFontSize(14);
+        smsSendButton.setProgressBarColor(0xFFFFFFFF);
+        smsSendButton.setLdProgressBarSize(60, 60);
+
+        registerButton.addButtonLister(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-			String firstname = firstNameText.getText().toString();
-			String lastname = lastNameText.getText().toString();
-			String email = emailText.getText().toString();
-			String phoneNumber = phoneNumberText.getText().toString();
-			String sms = smsText.getText().toString();
-			String password = passwordText.getText().toString();
-			String passwordConfirm = passwordConfirmText.getText().toString();
-			String referenceNumber = referenceNumberText.getText().toString();
+                String firstname = firstNameText.getText().toString();
+                String lastname = lastNameText.getText().toString();
+                String email = emailText.getText().toString();
+                String phoneNumber = phoneNumberText.getText().toString();
+                String sms = smsText.getText().toString();
+                String password = passwordText.getText().toString();
+                String passwordConfirm = passwordConfirmText.getText().toString();
+                String referenceNumber = referenceNumberText.getText().toString();
 
-			HashMap<String, String> parameters = new HashMap<String, String>();
+                HashMap<String, String> parameters = new HashMap<String, String>();
 
-			parameters.put("firstname", firstname);
-			parameters.put("lastname", lastname);
-			parameters.put("email", email);
-			parameters.put("phone_number", phoneNumber);
-			parameters.put("sms", sms);
-			parameters.put("password", password);
-			parameters.put("password_confirm", passwordConfirm);
-			parameters.put("reference_number", referenceNumber);
+                parameters.put("firstname", firstname);
+                parameters.put("lastname", lastname);
+                parameters.put("email", email);
+                parameters.put("phone_number", phoneNumber);
+                parameters.put("sms", sms);
+                parameters.put("password", password);
+                parameters.put("password_confirm", passwordConfirm);
+                parameters.put("reference_number", referenceNumber);
 
-			firstNameText.setFocusable(false);
-			lastNameText.setFocusable(false);
-			emailText.setFocusable(false);
-			phoneNumberText.setFocusable(false);
-			smsText.setFocusable(false);
-			passwordText.setFocusable(false);
-			passwordConfirmText.setFocusable(false);
-			referenceNumberText.setFocusable(false);
+                firstNameText.setFocusable(false);
+                lastNameText.setFocusable(false);
+                emailText.setFocusable(false);
+                phoneNumberText.setFocusable(false);
+                smsText.setFocusable(false);
+                passwordText.setFocusable(false);
+                passwordConfirmText.setFocusable(false);
+                referenceNumberText.setFocusable(false);
 
-			RegisterTask registerTask = new RegisterTask(parameters);
-			registerTask.execute();
+                registerButton.startLoading();
+
+                RegisterTask registerTask = new RegisterTask(parameters);
+                registerTask.execute();
             }
         });
 
-        smsSendButton.setOnClickListener(new View.OnClickListener() {
+        smsSendButton.addButtonLister(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            String phoneNumber = phoneNumberText.getText().toString();
+                String phoneNumber = phoneNumberText.getText().toString();
 
-            SMSTask smsTask = new SMSTask(phoneNumber);
-            smsTask.execute();
+                smsSendButton.startLoading();
+
+                SMSTask smsTask = new SMSTask(phoneNumber);
+                smsTask.execute();
             }
         });
     }
@@ -169,6 +185,8 @@ public class RegisterActivity extends AppCompatActivity {
 					passwordConfirmText.setText("");
                     referenceNumberText.setText("");
 
+                    registerButton.stopLoading();
+
                     AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this).create();
                     alertDialog.setTitle("Alert");
                     alertDialog.setMessage("some information are not correct");
@@ -213,6 +231,7 @@ public class RegisterActivity extends AppCompatActivity {
                 JSONObject data = (JSONObject)outdata.get("data");
                 int code = data.getInt("code");
 
+                smsSendButton.stopLoading();
 
             } catch(JSONException e) {
                 e.printStackTrace();

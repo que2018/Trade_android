@@ -2,6 +2,8 @@ package com.coin.trade.adapter;
 
 import java.util.ArrayList;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +12,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.coin.trade.database.model.Price;
+import com.coin.trade.main.TradeChartActivity;
 import com.coin.trade.R;
 
 public class PriceAdapter extends BaseAdapter {
-	
+
+    private Context context;
 	private ArrayList<Price> prices;
 	
-	public PriceAdapter(ArrayList<Price> prices) {
-		this.prices = prices;
+	public PriceAdapter(Context context, ArrayList<Price> prices) {
+		this.context = context;
+	    this.prices = prices;
 	}
 	
     @Override
@@ -58,6 +63,14 @@ public class PriceAdapter extends BaseAdapter {
         } else {
             trendText.setBackgroundColor(Color.parseColor("#ef7955"));
         }
+
+        priceView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, TradeChartActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
         return priceView;
     }

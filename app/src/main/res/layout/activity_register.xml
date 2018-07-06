@@ -102,19 +102,13 @@
 				android:layout_centerVertical="true"
 				android:hint="@string/text_sms" />
 
-			<Button
+			<com.coin.trade.customview.LoadingButton
 				android:id="@+id/sms_send"
 				android:layout_width="0dp"
 				android:layout_weight="1"
 				android:layout_height="35dp"
 				android:layout_marginLeft="15dp"
-				android:layout_centerVertical="true"
-				android:text="@string/button_sms_send"
-				android:textAllCaps="false"
-				android:textColor="#ffffff"
-				android:textSize="14dp"
-				android:background="@color/colorPrimary"
-				style="?android:attr/borderlessButtonStyle" />
+				android:layout_centerVertical="true" />
 
 		</LinearLayout>
 
@@ -178,17 +172,11 @@
 		android:paddingLeft="50dp"
 		android:paddingRight="50dp" >
 
-		<Button
+		<com.coin.trade.customview.LoadingButton
 			android:id="@+id/register"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_centerVertical="true"
-			android:text="@string/button_register"
-			android:textAllCaps="false"
-			android:textColor="#ffffff"
-			android:textSize="18dp"
-			android:background="@color/colorPrimary"
-			style="?android:attr/borderlessButtonStyle" />
+			android:layout_centerVertical="true" />
 
 	</RelativeLayout>
 
