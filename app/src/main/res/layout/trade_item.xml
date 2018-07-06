@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+    android:layout_height="35dp"
+    android:background="#ffffff" >
+
+    <TextView
+        android:id="@+id/buy_index"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#717483"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/value_buy"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#717483"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/price_buy"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#16b187"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/price_sell"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#ef7955"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/value_sell"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#717483"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/sell_index"
+        android:layout_height="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:textColor="#717483"
+        android:gravity="center" />
+
+</LinearLayout>
