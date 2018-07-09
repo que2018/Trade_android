@@ -14,8 +14,8 @@ public class STATS {
 	public static int HTTP_TIMEOUT                       = 408;
 	public static int HTTP_NO_HOST                       = 903;
 	
-	public static int LOGIN_SUCCESS                      = 1000;
-	public static int LOGIN_ERROR                        = 1001;
+	public static String LOGIN_SUCCESS                   = "validation_successful";
+	public static String LOGIN_ERROR                     = "validation_unsuccessful";
 	public static int REGISTER_SUCCESS                   = 2000;
 	public static int REGISTER_ERROR                     = 2001;
 	public static int TRADE_SUCCESS                      = 3000;

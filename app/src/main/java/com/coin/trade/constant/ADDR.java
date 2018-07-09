@@ -2,7 +2,7 @@ package com.coin.trade.constant;
 
 public class ADDR {
 	public static String HOME = "http://samintehbox.com/trade/home.php";
-	public static String LOGIN = "http://saminthebox.com/trade/login.php";
+	public static String LOGIN = "http://bisail.com/api/account/login";
 	public static String REGISTER = "http://saminthebox.com/trade/register.php";
     public static String REGISTER_SMS = "http://saminthebox.com/trade/register_sms.php";
 	public static String TRADE = "http://saminthebox.com/trade/trade.php";

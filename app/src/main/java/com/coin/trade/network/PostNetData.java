@@ -1,5 +1,7 @@
 package com.coin.trade.network;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +35,8 @@ public class PostNetData {
 			if (httpCode == STATS.HTTP_OK) {
                 String result = EntityUtils.toString(response.getEntity(), "UTF-8");
 				JSONObject data = new JSONObject(result);
+
+				Log.d("postnetdata", result);
 				
 				map.put("http_code", httpCode);
 				map.put("data", data);

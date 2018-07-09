@@ -25,6 +25,7 @@
     <string name="text_amount">Amount</string>
     <string name="text_buy">Buy</string>
     <string name="text_sell">Sell</string>
+    <string name="text_hello_username">Hello, %s</string>
 
     <string name="button_usdt">USDT</string>
     <string name="button_btc">BTC</string>

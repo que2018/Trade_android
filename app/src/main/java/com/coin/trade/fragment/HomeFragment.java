@@ -3,12 +3,15 @@ package com.coin.trade.fragment;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.coin.trade.main.LoginActivity;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -19,9 +22,12 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 
 import com.coin.trade.R;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class HomeFragment extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
 	private SliderLayout sliderShow;
+	private TextView helloText;
 	private Button loginButton;
 
     @Override
@@ -34,6 +40,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         View rootView = inflater.inflate(R.layout.fragment_home, null);
 
 		sliderShow = rootView.findViewById(R.id.slider_show);
+        helloText = rootView.findViewById(R.id.hello);
 		loginButton = rootView.findViewById(R.id.login);
 
         //sliders
@@ -57,14 +64,33 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         sliderShow.setDuration(4000);
         sliderShow.addOnPageChangeListener(this);
 
-        //go to login
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        SharedPreferences shared = getActivity().getSharedPreferences("auth", MODE_PRIVATE);
+        boolean isLogin = shared.getBoolean("is_login",false);
+
+        if(isLogin) {
+            helloText.setVisibility(View.VISIBLE);
+            loginButton.setVisibility(View.INVISIBLE);
+
+            String firstName = shared.getString("first_name", "");
+
+            String helloUsername = getResources().getString(R.string.text_hello_username);
+
+            String hello = String.format(helloUsername, firstName);
+
+            helloText.setText(hello);
+        } else {
+            helloText.setVisibility(View.INVISIBLE);
+            loginButton.setVisibility(View.VISIBLE);
+
+            //go to login
+            loginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         return rootView;
     }

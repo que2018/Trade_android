@@ -6,6 +6,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -58,6 +60,17 @@ public class LoginActivity extends AppCompatActivity {
 
                 loginButton.startLoading();
 
+                //hide keyboard
+                InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+                View currentView = getCurrentFocus();
+
+                if(currentView == null) {
+                    currentView = new View(LoginActivity.this);
+                }
+
+                inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
                 LoginTask loginTask = new LoginTask(username, password);
                 loginTask.execute();
             }
@@ -97,12 +110,21 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Void v) {
             try {
                 JSONObject data = (JSONObject)outdata.get("data");
-                int code = data.getInt("code");
-                String username = data.getString("username");
+                boolean success = data.getBoolean("success");
 
-                if(code == STATS.LOGIN_SUCCESS) {
+                if(success) {
+                    data = (JSONObject)data.get("data");
+
+                    String username = data.getString("username");
+                    String firstName = data.getString("first_name");
+                    String lastName = data.getString("last_name");
+
                     SharedPreferences.Editor editor = getSharedPreferences("auth", MODE_PRIVATE).edit();
+                    editor.putBoolean("is_login",true);
                     editor.putString("username",username);
+                    editor.putString("first_name", firstName);
+                    editor.putString("last_name", lastName);
+
                     editor.apply();
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
