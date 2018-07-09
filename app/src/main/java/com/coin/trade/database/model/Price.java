@@ -2,13 +2,13 @@ package com.coin.trade.database.model;
 
 public class Price {
 
-	private String title;
+	private String code;
 	private String value;
 	private String trend;
 	private String trendSign;
 	
-	public String getTitle() {
-		return title;
+	public String getCode() {
+		return code;
 	}
 	
 	public String getValue() {
@@ -23,8 +23,8 @@ public class Price {
 		return trendSign;
 	}
 	
-	public void setTitle(String title) {
-		this.title = title;
+	public void setCode(String title) {
+		this.code = title;
 	} 
 	
 	public void setValue(String value) {

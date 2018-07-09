@@ -44,17 +44,17 @@ public class PriceAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 	    View priceView = LayoutInflater.from(parent.getContext()).inflate(R.layout.price_item, parent, false);
 
-        TextView titleText = priceView.findViewById(R.id.title);
+        TextView codeText = priceView.findViewById(R.id.code);
         TextView valueText = priceView.findViewById(R.id.value);
         TextView trendText = priceView.findViewById(R.id.trend);
 
         Price price = prices.get(position);
-        String title = price.getTitle();
+        String code = price.getCode();
         String value = price.getValue();
         String trend = price.getTrend();
         String trendSign = price.getTrendSign();
 
-        titleText.setText(title);
+        codeText.setText(code);
         valueText.setText(value);
         trendText.setText(trend);
 

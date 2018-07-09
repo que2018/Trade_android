@@ -72,9 +72,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
             loginButton.setVisibility(View.INVISIBLE);
 
             String firstName = shared.getString("first_name", "");
-
             String helloUsername = getResources().getString(R.string.text_hello_username);
-
             String hello = String.format(helloUsername, firstName);
 
             helloText.setText(hello);

@@ -149,29 +149,35 @@ public class QuotationFragment extends Fragment {
             try {
                 JSONObject data = (JSONObject)outdata.get("data");
 
-                JSONArray pricesJson = data.getJSONArray("prices");
+                boolean success = data.getBoolean("success");
 
-                ArrayList<Price> prices = new ArrayList<Price>();
+                if(success){
+                    JSONArray pricesJson = data.getJSONArray("data");
 
-                for(int i = 0; i < pricesJson.length(); i++) {
-                    JSONObject priceJson = (JSONObject) pricesJson.get(i);
-                    String title = priceJson.getString("title");
-                    String value = priceJson.getString("value");
-                    String trend = priceJson.getString("trend").toString();
-                    String trendSign = priceJson.getString("trend_sign").toString();
+                    ArrayList<Price> prices = new ArrayList<Price>();
 
-                    Price price = new Price();
-                    price.setTitle(title);
-                    price.setValue(value);
-                    price.setTrend(trend);
-                    price.setTrendSign(trendSign);
+                    for (int i = 0; i < pricesJson.length(); i++) {
+                        JSONObject priceJson = (JSONObject) pricesJson.get(i);
 
-                    prices.add(price);
+                        JSONObject pirceCurrency = (JSONObject)priceJson.get("price_currency");
+
+                        String code = pirceCurrency.getString("code");
+                        String value = pirceCurrency.getString("value");
+                        //String trend = pirceCurrency.getString("trend").toString();
+                        //String trendSign = pirceCurrency.getString("trend_sign").toString();
+
+                        Price price = new Price();
+                        price.setCode(code);
+                        price.setValue(value);
+                        price.setTrend(value);
+                        price.setTrendSign("p");
+
+                        prices.add(price);
+                    }
+
+                    PriceAdapter priceAdapter = new PriceAdapter(getActivity(), prices);
+                    priceList.setAdapter(priceAdapter);
                 }
-
-                PriceAdapter priceAdapter = new PriceAdapter(getActivity(), prices);
-                priceList.setAdapter(priceAdapter);
-
             } catch(JSONException e) {
                 e.printStackTrace();
             }

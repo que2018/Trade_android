@@ -7,7 +7,7 @@
     android:background="#ffffff" >
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/code"
         android:layout_height="fill_parent"
         android:layout_width="0dp"
         android:layout_weight="1"

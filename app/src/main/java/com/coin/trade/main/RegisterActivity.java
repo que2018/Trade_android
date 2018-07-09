@@ -7,6 +7,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -14,7 +15,9 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.coin.trade.constant.ADDR;
 import com.coin.trade.constant.STATS;
@@ -27,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText firstNameText;
     private EditText lastNameText;
 	private EditText emailText;
-	private EditText phoneNumberText;
+	private EditText phoneText;
 	private EditText smsText;
 	private EditText passwordText;	
 	private EditText passwordConfirmText;
@@ -43,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
 		firstNameText = findViewById(R.id.firstname);
 		lastNameText = findViewById(R.id.lastname);
 		emailText = findViewById(R.id.email);
-		phoneNumberText = findViewById(R.id.phone);
+		phoneText = findViewById(R.id.phone);
 		smsText = findViewById(R.id.sms);
 		passwordText = findViewById(R.id.password);
 		passwordConfirmText = findViewById(R.id.password_confirm);
@@ -69,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String firstname = firstNameText.getText().toString();
                 String lastname = lastNameText.getText().toString();
                 String email = emailText.getText().toString();
-                String phoneNumber = phoneNumberText.getText().toString();
+                String phone = phoneText.getText().toString();
                 String sms = smsText.getText().toString();
                 String password = passwordText.getText().toString();
                 String passwordConfirm = passwordConfirmText.getText().toString();
@@ -80,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                 parameters.put("firstname", firstname);
                 parameters.put("lastname", lastname);
                 parameters.put("email", email);
-                parameters.put("phone_number", phoneNumber);
+                parameters.put("phone", phone);
                 parameters.put("sms", sms);
                 parameters.put("password", password);
                 parameters.put("password_confirm", passwordConfirm);
@@ -89,7 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
                 firstNameText.setFocusable(false);
                 lastNameText.setFocusable(false);
                 emailText.setFocusable(false);
-                phoneNumberText.setFocusable(false);
+                phoneText.setFocusable(false);
                 smsText.setFocusable(false);
                 passwordText.setFocusable(false);
                 passwordConfirmText.setFocusable(false);
@@ -105,11 +108,22 @@ public class RegisterActivity extends AppCompatActivity {
         smsSendButton.addButtonLister(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phoneNumber = phoneNumberText.getText().toString();
+                String phone = phoneText.getText().toString();
+
+                //hide keyboard
+                InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+                View currentView = getCurrentFocus();
+
+                if(currentView == null) {
+                    currentView = new View(RegisterActivity.this);
+                }
+
+                inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
                 smsSendButton.startLoading();
 
-                SMSTask smsTask = new SMSTask(phoneNumber);
+                SMSTask smsTask = new SMSTask(phone);
                 smsTask.execute();
             }
         });
@@ -170,7 +184,7 @@ public class RegisterActivity extends AppCompatActivity {
 					firstNameText.setFocusableInTouchMode(true);
 					lastNameText.setFocusableInTouchMode(true);
 					emailText.setFocusableInTouchMode(true);
-					phoneNumberText.setFocusableInTouchMode(true);
+					phoneText.setFocusableInTouchMode(true);
 					smsText.setFocusableInTouchMode(true);
 					passwordText.setFocusableInTouchMode(true);
 					passwordConfirmText.setFocusableInTouchMode(true);
@@ -179,7 +193,7 @@ public class RegisterActivity extends AppCompatActivity {
                     firstNameText.setText("");
                     lastNameText.setText("");
 					emailText.setText("");
-                    phoneNumberText.setText("");
+                    phoneText.setText("");
 					smsText.setText("");
                     passwordText.setText("");
 					passwordConfirmText.setText("");
@@ -208,17 +222,19 @@ public class RegisterActivity extends AppCompatActivity {
 
     class SMSTask extends AsyncTask<Void, Void, Void> {
 
-        private String phoneNumber;
+        private String phone;
         private JSONObject outdata;
 
-        SMSTask(String phoneNumber) {
-          this.phoneNumber = phoneNumber;
+        SMSTask(String phone) {
+          this.phone = phone;
         }
 
         @Override
         protected Void doInBackground(Void... params) {
             ArrayList<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("phone_number", phoneNumber));
+            nameValuePairs.add(new BasicNameValuePair("type", "sms"));
+            nameValuePairs.add(new BasicNameValuePair("register", "register"));
+            nameValuePairs.add(new BasicNameValuePair("phone", phone));
 
             outdata = PostNetData.getResult(ADDR.REGISTER_SMS, nameValuePairs);
 
@@ -229,7 +245,15 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onPostExecute(Void v) {
             try {
                 JSONObject data = (JSONObject)outdata.get("data");
-                int code = data.getInt("code");
+                boolean success = data.getBoolean("success");
+
+                if(success) {
+                    String smsSent = getResources().getString(R.string.text_sms_sent);
+                    Toast.makeText(RegisterActivity.this, smsSent, Toast.LENGTH_LONG).show();
+                } else {
+                    String msg = data.getString("msg");
+                    Toast.makeText(RegisterActivity.this, msg, Toast.LENGTH_LONG).show();
+                }
 
                 smsSendButton.stopLoading();
 
