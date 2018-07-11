@@ -1,5 +1,7 @@
 package com.coin.trade.network;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 import org.apache.http.HttpResponse;
@@ -13,7 +15,6 @@ import org.json.JSONObject;
 
 import com.coin.trade.constant.CONF;
 import com.coin.trade.constant.STATS;
-
 
 public class GetNetData {
     public static JSONObject getResult(String url) {
@@ -31,7 +32,10 @@ public class GetNetData {
 			int httpCode = response.getStatusLine().getStatusCode();
 			
 			if (httpCode == STATS.HTTP_OK) {
-                String result = EntityUtils.toString(response.getEntity(), "UTF-8");		
+                String result = EntityUtils.toString(response.getEntity(), "UTF-8");
+
+				Log.d("get_data", result);
+
 				JSONObject data = new JSONObject(result);
 
 				map.put("http_code", httpCode);

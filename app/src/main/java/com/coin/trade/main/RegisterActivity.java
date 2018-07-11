@@ -105,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        smsSendButton.addButtonLister(new View.OnClickListener() {
+        smsSendButton.addButtonLister(  new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String phone = phoneText.getText().toString();

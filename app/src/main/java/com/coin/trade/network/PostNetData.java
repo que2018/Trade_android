@@ -36,7 +36,7 @@ public class PostNetData {
                 String result = EntityUtils.toString(response.getEntity(), "UTF-8");
 				JSONObject data = new JSONObject(result);
 
-				Log.d("postnetdata", result);
+				Log.d("post_data", result);
 				
 				map.put("http_code", httpCode);
 				map.put("data", data);

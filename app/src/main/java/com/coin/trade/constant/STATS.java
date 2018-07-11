@@ -20,7 +20,6 @@ public class STATS {
 	public static int REGISTER_ERROR                     = 2001;
 	public static int TRADE_SUCCESS                      = 3000;
 	public static int TRADE_ERROR                        = 3001;
-
 }
 
 

@@ -30,6 +30,11 @@
         </activity>
 
         <activity
+            android:name=".main.LogoutActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
             android:name=".main.RegisterActivity"
             android:screenOrientation="portrait">
         </activity>
