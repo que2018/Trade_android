@@ -71,13 +71,28 @@
 		android:paddingLeft="50dp"
 		android:paddingRight="50dp" >
 
-		<EditText
-			android:id="@+id/phone"
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:inputType="text"
-			android:layout_centerVertical="true"
-			android:hint="@string/text_phone_number" />
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:orientation="horizontal">
+
+			<Spinner
+				android:id="@+id/country_code"
+				android:layout_width="0dp"
+				android:layout_weight="4"
+				android:layout_height="wrap_content"
+				android:spinnerMode="dropdown"/>
+
+			<EditText
+				android:id="@+id/phone"
+				android:layout_height="wrap_content"
+				android:layout_width="0dp"
+				android:layout_weight="6"
+				android:inputType="text"
+				android:layout_centerVertical="true"
+				android:hint="@string/text_phone_number" />
+
+		</LinearLayout>
 
 	</RelativeLayout>
 	
@@ -106,7 +121,7 @@
 				android:id="@+id/sms_send"
 				android:layout_width="0dp"
 				android:layout_weight="1"
-				android:layout_height="35dp"
+				android:layout_height="32dp"
 				android:layout_marginLeft="15dp"
 				android:layout_centerVertical="true" />
 
@@ -148,7 +163,7 @@
 
 	</RelativeLayout>
 	
-	<RelativeLayout 
+	<RelativeLayout
 		android:layout_width="fill_parent"
 		android:layout_weight="1"
 		android:layout_height="0dp"
@@ -156,12 +171,28 @@
 		android:paddingRight="50dp" >
 
 		<EditText
-			android:id="@+id/reference_number"
+			android:id="@+id/referrals"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:inputType="text"
 			android:layout_centerVertical="true"
 			android:hint="@string/text_reference_number" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_weight="0.5"
+		android:layout_height="0dp"
+		android:paddingLeft="50dp"
+		android:paddingRight="50dp" >
+
+		<CheckBox
+			android:id="@+id/agree"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/text_agree_private_policy"
+			android:checked="false" />
 
 	</RelativeLayout>
 	

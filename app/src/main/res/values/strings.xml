@@ -29,6 +29,8 @@
     <string name="text_sms_sent">sms sent success</string>
     <string name="text_sms_sent_error">xxxxx</string>
     <string name="text_logout">Logout</string>
+    <string name="text_agree_private_policy">I agree with private policy</string>
+
 
     <string name="button_usdt">USDT</string>
     <string name="button_btc">BTC</string>

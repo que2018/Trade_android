@@ -14,18 +14,26 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.coin.trade.constant.ADDR;
 import com.coin.trade.constant.STATS;
 import com.coin.trade.customview.LoadingButton;
+import com.coin.trade.network.NetClient;
 import com.coin.trade.network.PostNetData;
 import com.coin.trade.R;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    private String countryCode = "1";
 
     private EditText firstNameText;
     private EditText lastNameText;
@@ -34,7 +42,9 @@ public class RegisterActivity extends AppCompatActivity {
 	private EditText smsText;
 	private EditText passwordText;	
 	private EditText passwordConfirmText;
-	private EditText referenceNumberText;	
+	private EditText referralsText;
+	private Spinner coutnryCodeSpinner;
+	private CheckBox agreeCheckBox;
     private LoadingButton registerButton;
     private LoadingButton smsSendButton;
 
@@ -50,9 +60,31 @@ public class RegisterActivity extends AppCompatActivity {
 		smsText = findViewById(R.id.sms);
 		passwordText = findViewById(R.id.password);
 		passwordConfirmText = findViewById(R.id.password_confirm);
-		referenceNumberText = findViewById(R.id.reference_number);
+        referralsText = findViewById(R.id.referrals);
         registerButton = findViewById(R.id.register);
         smsSendButton = findViewById(R.id.sms_send);
+        coutnryCodeSpinner = findViewById(R.id.country_code);
+        agreeCheckBox = findViewById(R.id.agree);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planets_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        coutnryCodeSpinner.setAdapter(adapter);
+
+        coutnryCodeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+                if(pos == 1)
+                    countryCode = "1";
+
+                if(pos == 2)
+                    countryCode = "86";
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
 
         String registerText = getResources().getString(R.string.button_register);
         String smsSendText = getResources().getString(R.string.button_sms_send);
@@ -76,18 +108,26 @@ public class RegisterActivity extends AppCompatActivity {
                 String sms = smsText.getText().toString();
                 String password = passwordText.getText().toString();
                 String passwordConfirm = passwordConfirmText.getText().toString();
-                String referenceNumber = referenceNumberText.getText().toString();
+                String referrals = referralsText.getText().toString();
+
+                String agree = "0";
+
+                if(agreeCheckBox.isChecked()) {
+                    agree = "1";
+                }
 
                 HashMap<String, String> parameters = new HashMap<String, String>();
 
-                parameters.put("firstname", firstname);
-                parameters.put("lastname", lastname);
+                parameters.put("first_name", firstname);
+                parameters.put("last_name", lastname);
                 parameters.put("email", email);
+                parameters.put("country_code", countryCode);
                 parameters.put("phone", phone);
-                parameters.put("sms", sms);
+                parameters.put("code[sms]", sms);
                 parameters.put("password", password);
                 parameters.put("password_confirm", passwordConfirm);
-                parameters.put("reference_number", referenceNumber);
+                parameters.put("referrals", referrals);
+                parameters.put("agree", agree);
 
                 firstNameText.setFocusable(false);
                 lastNameText.setFocusable(false);
@@ -96,16 +136,44 @@ public class RegisterActivity extends AppCompatActivity {
                 smsText.setFocusable(false);
                 passwordText.setFocusable(false);
                 passwordConfirmText.setFocusable(false);
-                referenceNumberText.setFocusable(false);
+                referralsText.setFocusable(false);
 
                 registerButton.startLoading();
 
-                RegisterTask registerTask = new RegisterTask(parameters);
-                registerTask.execute();
+                //RegisterTask registerTask = new RegisterTask(parameters);
+                //registerTask.execute();
+
+                NetClient.getInstance().request(NetClient.Method.POST, ADDR.REGISTER, parameters, new NetClient.Response() {
+                    @Override
+                    public void responseJSON(JSONObject jsonData) {
+                        if ( jsonData == null ) {
+
+                            Log.d("net data", "it is null");
+
+                            return;
+                        }
+
+                        try {
+                            boolean success = jsonData.getBoolean("success");
+
+                            if(success) {
+                                Log.d("net data", "it is a success");
+                                smsSendButton.stopLoading();
+                            } else {
+                                String code = jsonData.getString("code");
+                                Log.d("error code", code);
+                                smsSendButton.stopLoading();
+                            }
+
+                        } catch(JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         });
 
-        smsSendButton.addButtonLister(  new View.OnClickListener() {
+        smsSendButton.addButtonLister(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String phone = phoneText.getText().toString();
@@ -123,48 +191,92 @@ public class RegisterActivity extends AppCompatActivity {
 
                 smsSendButton.startLoading();
 
-                SMSTask smsTask = new SMSTask(phone);
-                smsTask.execute();
+                HashMap<String, String> parameters = new HashMap<String, String>();
+
+                parameters.put("type", "sms");
+                parameters.put("register", "register");
+                parameters.put("phone", countryCode + "" + phone);
+
+                NetClient.getInstance().request(NetClient.Method.POST, ADDR.REGISTER_SMS, parameters, new NetClient.Response() {
+                    @Override
+                    public void responseJSON(JSONObject jsonData) {
+                        if ( jsonData == null ) {
+
+                            Log.d("net data", "it is null");
+
+                            return;
+                        }
+
+                        try {
+                            boolean success = jsonData.getBoolean("success");
+
+                            if(success) {
+                                Log.d("net data", "it is a success");
+                                smsSendButton.stopLoading();
+                            }
+
+                        } catch(JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         });
     }
 
     class RegisterTask extends AsyncTask<Void, Void, Void> {
-		
+
         private String firstname;
         private String lastname;
 		private String email;
-		private String phoneNumber;
+		private String countryCode;
+		private String phone;
 		private String sms;
 		private String password;
 		private String passwordConfirm;
-		private String referenceNumber;
-		
+		private String referrals;
+        private String agree;
+
         private JSONObject outdata;
 
         RegisterTask(HashMap parameters) {
             this.firstname = (String)parameters.get("firstname");
 			this.lastname = (String)parameters.get("lastname");
             this.email = (String)parameters.get("email");
-            this.phoneNumber = (String)parameters.get("phone_number");
+            this.countryCode = (String)parameters.get("country_code");
+            this.phone = (String)parameters.get("phone");
             this.sms = (String)parameters.get("sms");
             this.password = (String)parameters.get("password");
             this.passwordConfirm = (String)parameters.get("password_confirm");
-            this.referenceNumber = (String)parameters.get("reference_number");
+            this.referrals = (String)parameters.get("referrals");
+            this.agree = (String)parameters.get("agree");
         }
 
         @Override
         protected Void doInBackground(Void... params) {
+
+            Log.d("reigister ....", firstname);
+            Log.d("reigister ....", lastname);
+            Log.d("reigister ....", email);
+            Log.d("reigister ....", countryCode);
+            Log.d("reigister ....", phone);
+            Log.d("reigister ....", sms);
+            Log.d("reigister ....", password);
+            Log.d("reigister ....", passwordConfirm);
+            Log.d("reigister ....", referrals);
+
             ArrayList<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("firstname", firstname));
-            nameValuePairs.add(new BasicNameValuePair("lastname", lastname));
+            nameValuePairs.add(new BasicNameValuePair("first_name", firstname));
+            nameValuePairs.add(new BasicNameValuePair("last_name", lastname));
 			nameValuePairs.add(new BasicNameValuePair("email", email));
-			nameValuePairs.add(new BasicNameValuePair("phone_number", phoneNumber));
-			nameValuePairs.add(new BasicNameValuePair("sms", sms));
+            nameValuePairs.add(new BasicNameValuePair("country_code", countryCode));
+            nameValuePairs.add(new BasicNameValuePair("phone", phone));
+			nameValuePairs.add(new BasicNameValuePair("code[sms]", sms));
 			nameValuePairs.add(new BasicNameValuePair("password", password));
 			nameValuePairs.add(new BasicNameValuePair("password_confirm", passwordConfirm));
-			nameValuePairs.add(new BasicNameValuePair("reference_number", referenceNumber));
-			
+			nameValuePairs.add(new BasicNameValuePair("referrals", referrals));
+            nameValuePairs.add(new BasicNameValuePair("agree", agree));
+
             outdata = PostNetData.getResult(ADDR.REGISTER, nameValuePairs);
 
             return null;
@@ -174,9 +286,9 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onPostExecute(Void v) {
             try {
                 JSONObject data = (JSONObject)outdata.get("data");
-                int code = data.getInt("code");
+                boolean success = data.getBoolean("success");
 
-                if(code == STATS.REGISTER_SUCCESS) {
+                if(success) {
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
                     RegisterActivity.this.finish();
@@ -188,7 +300,7 @@ public class RegisterActivity extends AppCompatActivity {
 					smsText.setFocusableInTouchMode(true);
 					passwordText.setFocusableInTouchMode(true);
 					passwordConfirmText.setFocusableInTouchMode(true);
-					referenceNumberText.setFocusableInTouchMode(true);
+                    referralsText.setFocusableInTouchMode(true);
 					
                     firstNameText.setText("");
                     lastNameText.setText("");
@@ -197,7 +309,7 @@ public class RegisterActivity extends AppCompatActivity {
 					smsText.setText("");
                     passwordText.setText("");
 					passwordConfirmText.setText("");
-                    referenceNumberText.setText("");
+                    referralsText.setText("");
 
                     registerButton.stopLoading();
 
@@ -231,27 +343,49 @@ public class RegisterActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            ArrayList<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("type", "sms"));
-            nameValuePairs.add(new BasicNameValuePair("register", "register"));
-            nameValuePairs.add(new BasicNameValuePair("phone", phone));
+            HashMap<String, String> parameters = new HashMap<String, String>();
 
-            outdata = PostNetData.getResult(ADDR.REGISTER_SMS, nameValuePairs);
+            parameters.put("type", "sms");
+            parameters.put("register", "register");
+            parameters.put("phone", phone);
+
+            NetClient.getInstance().request(NetClient.Method.POST, ADDR.REGISTER_SMS, parameters, new NetClient.Response() {
+                @Override
+                public void responseJSON(JSONObject jsonData) {
+                    if ( jsonData == null ) {
+
+                        Log.d("net data", "it is null");
+
+                        return;
+                    }
+
+                    try {
+                        outdata = jsonData;
+                        boolean success = jsonData.getBoolean("success");
+
+                        if(success)
+                            Log.d("net data", "it is a success");
+
+                    } catch(JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
             return null;
         }
 
         @Override
         protected void onPostExecute(Void v) {
-            try {
+           /* try {
                 JSONObject data = (JSONObject)outdata.get("data");
-                boolean success = data.getBoolean("success");
+                boolean success = outdata.getBoolean("success");
 
                 if(success) {
                     String smsSent = getResources().getString(R.string.text_sms_sent);
                     Toast.makeText(RegisterActivity.this, smsSent, Toast.LENGTH_LONG).show();
                 } else {
-                    String msg = data.getString("msg");
+                    String msg = outdata.getString("msg");
                     Toast.makeText(RegisterActivity.this, msg, Toast.LENGTH_LONG).show();
                 }
 
@@ -259,7 +393,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             } catch(JSONException e) {
                 e.printStackTrace();
-            }
+            } */
         }
     }
 }
