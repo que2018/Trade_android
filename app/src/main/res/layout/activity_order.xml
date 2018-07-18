@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal"
+        android:background="#ffffff" >
+
+        <Button
+            android:id="@+id/trade_list_btn"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/r1111_purple"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/button_usdt" />
+
+        <Button
+            android:id="@+id/trade_history_btn"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/r1111_grey_light"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/button_btc" />
+
+        <Button
+            android:id="@+id/exchange_history_btn"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/r1111_grey_light"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/button_eth" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9" >
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+        </ProgressBar>
+
+        <ListView
+            android:id="@+id/history_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:dividerHeight="0dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

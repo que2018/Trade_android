@@ -38,6 +38,11 @@
             android:name=".main.RegisterActivity"
             android:screenOrientation="portrait">
         </activity>
+		
+		<activity
+            android:name=".main.OrderActivity"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
 

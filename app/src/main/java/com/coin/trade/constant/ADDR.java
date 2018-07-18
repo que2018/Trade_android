@@ -11,4 +11,7 @@ public class ADDR {
 	public static String PRICE_USDT = "code_price";
 	public static String PRICE_BTC = "http://bisail.com/api/exchange/trade/get_list?code_product=BTC";
 	public static String PRICE_ETH = "http://bisail.com/api/exchange/trade/get_list?code_product=ETH";
+	public static String TRADE_LIST = "http://bisail.com/api/exchange/trade/get_list?code_product=ETH";
+	public static String TRADE_HISTORY = "http://bisail.com/api/exchange/trade/get_list?code_product=ETH";
+	public static String EXCHANGE_HISTORY = "http://bisail.com/api/exchange/trade/get_list?code_product=ETH";
 }
