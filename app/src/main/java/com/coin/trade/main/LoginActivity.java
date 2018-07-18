@@ -1,8 +1,7 @@
 package com.coin.trade.main;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,9 +19,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.coin.trade.constant.ADDR;
-import com.coin.trade.constant.STATS;
 import com.coin.trade.customview.LoadingButton;
-import com.coin.trade.network.PostNetData;
+import com.coin.trade.network.NetClient;
 import com.coin.trade.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -71,7 +69,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                LoginTask loginTask = new LoginTask(username, password);
+                HashMap<String, String> parameters = new HashMap<String, String>();
+                parameters.put("username", username);
+                parameters.put("password", password);
+
+                LoginTask loginTask = new LoginTask(parameters);
                 loginTask.execute();
             }
         });
@@ -87,21 +89,17 @@ public class LoginActivity extends AppCompatActivity {
 
     class LoginTask extends AsyncTask<Void, Void, Void> {
 
-        private String username;
-        private String password;
+        private HashMap<String, String> parameters;
         private JSONObject outdata;
 
-        LoginTask(String username, String password) {
-            this.username = username;
-            this.password = password;
+        LoginTask(HashMap parameters) {
+            this.parameters = parameters;
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-            ArrayList<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-            nameValuePairs.add(new BasicNameValuePair("username", username));
-            nameValuePairs.add(new BasicNameValuePair("password", password));
-            outdata = PostNetData.getResult(ADDR.LOGIN, nameValuePairs);
+            NetClient netClient = NetClient.getInstance();
+            outdata = netClient.postRequest(ADDR.LOGIN, parameters, null, null);
 
             return null;
         }
@@ -109,11 +107,10 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void v) {
             try {
-                JSONObject data = (JSONObject)outdata.get("data");
-                boolean success = data.getBoolean("success");
+                boolean success = outdata.getBoolean("success");
 
                 if(success) {
-                    data = (JSONObject)data.get("data");
+                    JSONObject data = (JSONObject)outdata.get("data");
 
                     String username = data.getString("username");
                     String firstName = data.getString("first_name");

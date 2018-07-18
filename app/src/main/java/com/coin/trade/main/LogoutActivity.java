@@ -1,24 +1,18 @@
 package com.coin.trade.main;
 
-import java.util.ArrayList;
-
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.coin.trade.constant.ADDR;
 import com.coin.trade.customview.LoadingButton;
-import com.coin.trade.network.GetNetData;
-import com.coin.trade.network.PostNetData;
+import com.coin.trade.network.NetClient;
 import com.coin.trade.R;
 
 public class LogoutActivity extends AppCompatActivity {
@@ -56,7 +50,8 @@ public class LogoutActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            outdata = GetNetData.getResult(ADDR.LOGOUT);
+            NetClient netClient = NetClient.getInstance();
+            outdata = netClient.httpRequest(ADDR.LOGOUT);
 
             return null;
         }
@@ -64,8 +59,7 @@ public class LogoutActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void v) {
             try {
-                JSONObject data = (JSONObject)outdata.get("data");
-                boolean success = data.getBoolean("success");
+                boolean success = outdata.getBoolean("success");
 
                 if(success) {
                     SharedPreferences.Editor editor = getSharedPreferences("auth", MODE_PRIVATE).edit();

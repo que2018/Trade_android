@@ -475,6 +475,9 @@ public class NetClient {
         }
         JSONObject jsonData =  null;
         try {
+
+            Log.d("net_client_output", result);
+
             jsonData = new JSONObject(result);
          } catch (Exception e) {
             Log.i(TAG, e.getMessage());

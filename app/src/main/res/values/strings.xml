@@ -4,6 +4,7 @@
     <string name="title_quotation">Quotation</string>
     <string name="title_trade">Trade</string>
     <string name="title_account">Account</string>
+    <string name="title_login">Login</string>
 
     <string name="text_my_assets">My Assets</string>
     <string name="text_new_to_us">New to us?</string>
@@ -30,7 +31,8 @@
     <string name="text_sms_sent_error">xxxxx</string>
     <string name="text_logout">Logout</string>
     <string name="text_agree_private_policy">I agree with private policy</string>
-
+    <string name="text_login_hint">login to explore bisail</string>
+    <string name="text_welcome">welcome bisail</string>
 
     <string name="button_usdt">USDT</string>
     <string name="button_btc">BTC</string>
@@ -43,5 +45,15 @@
     <string name="button_buy">Buy</string>
     <string name="button_sell">Sell</string>
     <string name="button_limit_order">Limit Order</string>
+
+    <string name="error_agree">policy not agreed</string>
+    <string name="error_sms">sms is incorrect</string>
+    <string name="error_email">email format is not correct</string>
+    <string name="error_first_name">firstname is empty</string>
+    <string name="error_last_name">lastname is empty</string>
+    <string name="error_password">passsword format is not correct</string>
+    <string name="error_password_confirm">password are not the same</string>
+    <string name="error_phone">phone format is not correct</string>
+    <string name="error_referrals">referrals error</string>
 
 </resources>

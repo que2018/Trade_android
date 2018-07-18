@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="100dp">
+        android:layout_height="120dp">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -28,26 +28,28 @@
                 android:layout_weight="3"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
-                android:padding="13dp" >
+                android:paddingLeft="13dp"
+                android:paddingTop="30dp" >
 
                 <TextView
                     android:id="@+id/username"
                     android:layout_width="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:layout_height="0dp"
-                    android:textSize="21dp"
+                    android:textSize="29dp"
                     android:textColor="#000000"
                     android:gravity="center_vertical|left"
-                    android:text="6265***6932" />
+                    android:text="@string/title_login" />
 
                 <TextView
+                    android:id="@+id/login_hint"
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:layout_height="0dp"
                     android:textSize="14dp"
                     android:textColor="#000000"
                     android:gravity="top|left"
-                    android:text="9652300" />
+                    android:text="@string/text_login_hint" />
 
             </LinearLayout>
 
@@ -56,6 +58,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/balance"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:paddingTop="10dp"
@@ -87,6 +90,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/order"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:paddingTop="10dp"
@@ -118,6 +122,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/about"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:paddingTop="10dp"
@@ -149,7 +154,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/logout_block"
+        android:id="@+id/logout"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:paddingTop="10dp"

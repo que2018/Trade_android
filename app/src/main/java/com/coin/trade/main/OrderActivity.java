@@ -30,10 +30,12 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.coin.trade.adapter.ExchangeAdapter;
 import com.coin.trade.adapter.TradeAdapter;
 import com.coin.trade.constant.ADDR;
 import com.coin.trade.constant.STATS;
 import com.coin.trade.customview.LoadingButton;
+import com.coin.trade.database.model.Exchange;
 import com.coin.trade.database.model.Trade;
 import com.coin.trade.network.GetNetData;
 import com.coin.trade.network.NetClient;
